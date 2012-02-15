@@ -1,0 +1,1 @@
+This is my attempt to build a conference app very quickly with rails.

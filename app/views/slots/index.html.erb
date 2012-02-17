@@ -11,8 +11,8 @@
 
 <% @slots.each do |slot| %>
   <tr>
-    <td><%= slot.start %></td>
-    <td><%= slot.end %></td>
+    <td><%= slot.start.strftime("%H:%M %p") %></td>
+    <td><%= slot.end.strftime("%H:%M %p") %></td>
     <td><%= link_to 'Show', slot %></td>
     <td><%= link_to 'Edit', edit_slot_path(slot) %></td>
     <td><%= link_to 'Destroy', slot, confirm: 'Are you sure?', method: :delete %></td>

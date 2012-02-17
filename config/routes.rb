@@ -1,18 +1,12 @@
 Conference::Application.routes.draw do
+  root :to => 'sessions#index'
   resources :people
-
   resources :products
-
   resources :userlevels
-
   resources :audiences
-
   resources :institutions
-
   resources :locations
-
   resources :slots
-
   resources :sessions
 
   # The priority is based upon order of creation:

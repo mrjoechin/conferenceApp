@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215095224) do
+ActiveRecord::Schema.define(:version => 20120217074841) do
 
   create_table "audiences", :force => true do |t|
     t.string   "desc"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20120215095224) do
     t.string   "institution_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "slot_id"
   end
 
   create_table "sessionuserlevels", :force => true do |t|
@@ -82,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20120215095224) do
 
   create_table "slots", :force => true do |t|
     t.time     "start"
-    t.time     "end"
+    t.time     "finish"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

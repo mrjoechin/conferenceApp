@@ -21,19 +21,23 @@
   </div>
   <div class="field">
     <%= f.label :location_id %><br />
-    <%= f.number_field :location_id %>
+    <%= collection_select(:location, :id, Location.all, :id, :name, options ={:prompt => "Select a Location"}, :class =>"location")%>
+  </div>
+  <div class="field">
+    <%= f.label :slot_id %><br />
+    <%= collection_select(:slot, :id, Slot.all, :id, :selectOptions, options ={:prompt => "Select a time"}, :class =>"slot")%>
   </div>
   <div class="field">
     <%= f.label :speaker_id %><br />
-    <%= f.number_field :speaker_id %>
+    <%= collection_select(:speaker, :id, Person.all, :id, :selectOptions, options ={:prompt => "Select a Speaker"}, :class =>"people")%>
   </div>
   <div class="field">
     <%= f.label :helper_id %><br />
-    <%= f.number_field :helper_id %>
+    <%= collection_select(:speaker, :id, Person.all, :id, :selectOptions, options ={:prompt => "Select a Helper"}, :class =>"people")%>
   </div>
   <div class="field">
     <%= f.label :institution_id %><br />
-    <%= f.text_field :institution_id %>
+    <%= collection_select(:speaker, :id, Institution.all, :id, :name, options ={:prompt => "Select a Institution"}, :class =>"institution")%>
   </div>
   <div class="actions">
     <%= f.submit %>

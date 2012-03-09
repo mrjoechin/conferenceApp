@@ -1,15 +1,15 @@
 class Session < ActiveRecord::Base
-  has_one :slot
-  has_one :location
-  has_one :institution
-  has_one :speaker, :class_name => "Person"
-  has_one :helper, :class_name => "Person"
+  belongs_to :slot
+  belongs_to :location
+  belongs_to :institution
+  belongs_to :speaker, :class_name => "Person"
+  belongs_to :helper, :class_name => "Person"
   
-  has_many :sessionaudiences
-  has_many :audiences, :through => :sessionaudiences
-  has_many :sessionproducts
-  has_many :products, :through => :sessionproducts
-  has_many :sessionuserlevels
-  has_many :userlevels, :through => :sessionuserlevels
+  has_many :sessionaudience
+  has_many :audiences, :through => :sessionaudience
+  has_many :sessionproduct
+  has_many :products, :through => :sessionproduct
+  has_many :sessionuserlevel
+  has_many :userlevels, :through => :sessionuserlevel
   
 end

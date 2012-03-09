@@ -21,24 +21,46 @@
   </div>
   <div class="field">
     <%= f.label :location_id %><br />
-    <%= collection_select(:location, :id, Location.all, :id, :name, options ={:prompt => "Select a Location"}, :class =>"location")%>
+    <%= collection_select(:session, :location_id, Location.all, :id, :name, options ={:prompt => "Select a Location"}, :class =>"location")%>
   </div>
   <div class="field">
     <%= f.label :slot_id %><br />
-    <%= collection_select(:slot, :id, Slot.all, :id, :selectOptions, options ={:prompt => "Select a time"}, :class =>"slot")%>
+    <%= collection_select(:session, :slot_id, Slot.all, :id, :selectOptions, options ={:prompt => "Select a time"}, :class =>"slot")%>
   </div>
   <div class="field">
     <%= f.label :speaker_id %><br />
-    <%= collection_select(:speaker, :id, Person.all, :id, :selectOptions, options ={:prompt => "Select a Speaker"}, :class =>"people")%>
+    <%= collection_select(:session, :speaker_id, Person.all, :id, :selectOptions, options ={:prompt => "Select a Speaker"}, :class =>"people")%>
   </div>
   <div class="field">
     <%= f.label :helper_id %><br />
-    <%= collection_select(:speaker, :id, Person.all, :id, :selectOptions, options ={:prompt => "Select a Helper"}, :class =>"people")%>
+    <%= collection_select(:session, :helper_id, Person.all, :id, :selectOptions, options ={:prompt => "Select a Helper"}, :class =>"people")%>
   </div>
   <div class="field">
     <%= f.label :institution_id %><br />
-    <%= collection_select(:speaker, :id, Institution.all, :id, :name, options ={:prompt => "Select a Institution"}, :class =>"institution")%>
+    <%= collection_select(:session, :institution_id, Institution.all, :id, :name, options ={:prompt => "Select a Institution"}, :class =>"institution")%>
   </div>
+  <div>
+    <p>Audiences</p>
+    <% Audience.all.each do |audience| %>
+      <%= check_box_tag 'session[audience_ids][]', audience.id, @session.audiences.include?(audience) %>
+      <%= label_tag :audience_ids, audience.desc %>
+    <% end %>
+  </div>
+  <div>
+    <p>User Levels</p>
+    <% Userlevel.all.each do |userlevel| %>
+      <%= check_box_tag 'session[userlevel_ids][]', userlevel.id, @session.userlevel_ids.include?(userlevel) %>
+      <%= label_tag :userlevel_ids, userlevel.desc %>
+    <% end %>
+  </div>
+  <div>
+    <p>Products</p>
+    <% Product.all.each do |product| %>
+      <%= check_box_tag 'session[product_ids][]', product.id, @session.product_ids.include?(product) %>
+      <%= label_tag :product_ids, product.name %>
+    <% end %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

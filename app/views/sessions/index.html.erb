@@ -5,9 +5,10 @@
     <th>Title</th>
     <th>Description</th>
     <th>Location</th>
+    <th>Slot</th>
     <th>Speaker</th>
     <th>Helper</th>
-    <th>Institution </th>
+    <th>Institution</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,10 +18,11 @@
   <tr>
     <td><%= session.title %></td>
     <td><%= session.description %></td>
-    <td><%= session.location_id %></td>
-    <td><%= session.speaker_id %></td>
-    <td><%= session.helper_id %></td>
-    <td><%= session.institution_id %></td>
+    <td><%= session.location.name %></td>
+    <td><%= session.slot.selectOptions %></td>
+    <td><%= "#{session.speaker.first_name}  #{session.speaker.last_name}" %></td>
+    <td><%= "#{session.helper.first_name}  #{session.helper.last_name}" %></td>
+    <td><%= session.institution.name %></td>
     <td><%= link_to 'Show', session %></td>
     <td><%= link_to 'Edit', edit_session_path(session) %></td>
     <td><%= link_to 'Destroy', session, confirm: 'Are you sure?', method: :delete %></td>

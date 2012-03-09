@@ -1,4 +1,4 @@
 class Product < ActiveRecord::Base
-  has_many :sessionproducts
-  has_many :sessions, :through => :sessionproducts
+  has_many :sessionproduct, :dependent => :destroy
+  has_many :sessions, :through => :sessionproduct
 end

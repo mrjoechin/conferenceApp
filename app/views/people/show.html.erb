@@ -1,25 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div data-role="page" data-title="Speaker Details | Evisions Conference 2012">
 
-<p>
-  <b>First name:</b>
-  <%= @person.first_name %>
-</p>
+  <div data-role="header" data-theme="d">
+        <h1>Session Details</h1>
+        <a href="<%= people_path %>" data-icon="back" data-direction="reverse" class="ui-btn-left">Back</a>
+  </div><!-- /header -->
 
-<p>
-  <b>Last name:</b>
-  <%= @person.last_name %>
-</p>
+	<div data-role="content" data-theme="b" id="skyline">
 
-<p>
-  <b>Bio:</b>
-  <%= @person.bio %>
-</p>
+    <h2><%= "#{@person.first_name} #{@person.last_name}" %></h2>
+    <p><%= @person.bio %></p>
 
-<p>
-  <b>Image path:</b>
-  <%= @person.image_path %>
-</p>
-
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+      <li data-role="list-divider">Sessions</li>
+			<% @sessions.each do |session| %>
+      <li><%= link_to session.title, session_path(session) %></li>
+			<% end %>
+		</ul>		
+	</div><!-- /content -->
+</div><!-- /page -->

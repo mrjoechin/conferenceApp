@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :restrict_to_development, :only => [:new,:edit,:create,:update,:destroy]
   # GET /products
   # GET /products.json
   def index

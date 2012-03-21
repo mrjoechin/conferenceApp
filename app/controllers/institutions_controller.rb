@@ -1,4 +1,5 @@
 class InstitutionsController < ApplicationController
+  before_filter :restrict_to_development, :only => [:new,:edit,:create,:update,:destroy]
   # GET /institutions
   # GET /institutions.json
   def index

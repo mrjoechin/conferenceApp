@@ -1,29 +1,27 @@
-<h1>Listing people</h1>
+<div data-role="page" data-title="Speakers | Evisions Conference 2012">
 
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Bio</th>
-    <th>Image path</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <div data-role="header" data-theme="d">
+    <h1>Speakers</h1>
+    <a href="<%= root_path %>" data-icon="home" data-direction="reverse" class="ui-btn-left">Home</a>
+  </div><!-- /header -->
 
-<% @people.each do |person| %>
-  <tr>
-    <td><%= person.first_name %></td>
-    <td><%= person.last_name %></td>
-    <td><%= person.bio %></td>
-    <td><%= person.image_path %></td>
-    <td><%= link_to 'Show', person %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
-    <td><%= link_to 'Destroy', person, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <%= link_to 'New Person', new_person_path if Rails.env.development? %>
 
-<br />
+  <div data-role="content">
+    <div class="content-primary">
+      <ul data-role="listview">
+        <% @people.each do |person| %>
+          <li><a href="<%= person_path(person) %>">
+            <h3><%= "#{person.first_name} #{person.last_name}" %></h3>
+            <p><strong>title, company</strong></p>
+          </a></li>
+          <%= link_to 'Show', person  if Rails.env.development? %>
+          <%= link_to 'Edit', edit_person_path(person)  if Rails.env.development? %>
+          <%= link_to 'Destroy', person, confirm: 'Are you sure?', method: :delete if Rails.env.development?%>
+        <% end %>
+      </ul><!--/listview -->
+    </div><!--/content-primary -->      
+  </div><!-- /content -->
+</div><!-- /page -->
 
-<%= link_to 'New Person', new_person_path %>
+

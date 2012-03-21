@@ -1,4 +1,5 @@
 class SlotsController < ApplicationController
+  before_filter :restrict_to_development, :only => [:new,:edit,:create,:update,:destroy]
   # GET /slots
   # GET /slots.json
   def index

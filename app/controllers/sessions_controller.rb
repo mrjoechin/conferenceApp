@@ -1,9 +1,15 @@
 class SessionsController < ApplicationController
+  before_filter :restrict_to_development, :only => [:new,:edit,:create,:update,:destroy]
   # GET /sessions
   # GET /sessions.json
   def index
-    @sessions = Session.all
-
+    @slots = Slot.all
+    
+    @sessions = Array.new
+    @slots.each do |slot|
+      @sessions << Session.where("slot_id = ?",slot.id).order("location_id")
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sessions }

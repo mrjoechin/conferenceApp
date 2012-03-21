@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_filter :restrict_to_development, :only => [:new,:edit,:create,:update,:destroy]
   # GET /locations
   # GET /locations.json
   def index

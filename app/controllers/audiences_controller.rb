@@ -1,4 +1,5 @@
 class AudiencesController < ApplicationController
+  before_filter :restrict_to_development, :only => [:new,:edit,:create,:update,:destroy]
   # GET /audiences
   # GET /audiences.json
   def index

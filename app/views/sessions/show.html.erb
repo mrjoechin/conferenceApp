@@ -1,35 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div data-role="page" data-title="Session Details | Evisions Conference 2012">
 
-<p>
-  <b>Title:</b>
-  <%= @session.title %>
-</p>
+  <div data-role="header" data-theme="d">
+    <h1>Session Details</h1>
+    <a href="<%= sessions_path %>" data-icon="back" data-direction="reverse" class="ui-btn-left">Back</a>
+  </div><!-- /header -->
 
-<p>
-  <b>Description:</b>
-  <%= @session.description %>
-</p>
+  <div data-role="content" data-theme="c" id="skyline">
+    <h2><%= @session.title %></h2>
+    <div class="collapsible-area">
+      <div data-role="collapsible" data-theme="b" data-content-theme="c">
+        <h3>About <%= "#{@session.speaker.first_name} #{@session.speaker.last_name}" %></h3>
+        <p><%= @session.speaker.bio %></p>
+      </div>
+    </div>
 
-<p>
-  <b>Location:</b>
-  <%= @session.location_id %>
-</p>
-
-<p>
-  <b>Speaker:</b>
-  <%= @session.speaker_id %>
-</p>
-
-<p>
-  <b>Helper:</b>
-  <%= @session.helper_id %>
-</p>
-
-<p>
-  <b>Institution :</b>
-  <%= @session.institution_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_session_path(@session) %> |
-<%= link_to 'Back', sessions_path %>
+    <p><%= @session.description %></p>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class UserlevelsController < ApplicationController
+  before_filter :restrict_to_development, :only => [:new,:edit,:create,:update,:destroy]
   # GET /userlevels
   # GET /userlevels.json
   def index

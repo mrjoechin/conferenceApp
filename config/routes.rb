@@ -1,5 +1,9 @@
 Conference::Application.routes.draw do
-  root :to => 'sessions#index'
+  root :to => 'pages#home'
+  match 'products' => 'pages#products'
+  match 'contact' => 'pages#contact'
+  match 'map' => 'pages#map'
+  
   resources :people
   resources :products
   resources :userlevels

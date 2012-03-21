@@ -1,8 +1,9 @@
 class PeopleController < ApplicationController
+  before_filter :restrict_to_development, :only => [:new,:edit,:create,:update,:destroy]
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.order("first_name")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class PeopleController < ApplicationController
   # GET /people/1.json
   def show
     @person = Person.find(params[:id])
+    @sessions = Session.where("speaker_id = ?", @person.id).order("slot_id")
 
     respond_to do |format|
       format.html # show.html.erb

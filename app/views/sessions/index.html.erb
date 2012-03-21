@@ -6,8 +6,7 @@
     <%= link_to 'New Session', new_session_path  if Rails.env.development? %>
 
     <div data-role="content">
-        <div class="content-primary">
-            <ul data-role="listview">
+            <ul data-role="listview" data-inset="true" >
                 <% @sessions.each do |slot| %>
                   <% slot.each_with_index do |session,i| %>
                     <% if (i == 0) %>
@@ -26,7 +25,6 @@
                     <%= link_to 'Destroy', session, confirm: 'Are you sure?', method: :delete if Rails.env.development?%>
                   <% end %>
                 <% end %>
-            </ul><!--/listview -->
-        </div><!--/content-primary -->      
+            </ul><!--/listview -->   
     </div><!-- /content -->
 

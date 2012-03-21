@@ -6,8 +6,7 @@
   <%= link_to 'New Person', new_person_path if Rails.env.development? %>
 
   <div data-role="content">
-    <div class="content-primary">
-      <ul data-role="listview">
+      <ul data-role="listview" data-inset="true" >
         <% @people.each do |person| %>
           <li><a href="<%= person_path(person) %>">
             <h3><%= "#{person.first_name} #{person.last_name}" %></h3>
@@ -17,9 +16,5 @@
           <%= link_to 'Edit', edit_person_path(person)  if Rails.env.development? %>
           <%= link_to 'Destroy', person, confirm: 'Are you sure?', method: :delete if Rails.env.development?%>
         <% end %>
-      </ul><!--/listview -->
-    </div><!--/content-primary -->      
+      </ul><!--/listview -->  
   </div><!-- /content -->
-
-
-

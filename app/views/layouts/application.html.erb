@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Evisions Conference</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -12,7 +11,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="skyline" data-role="page" data-title="#{@title} | Evisions Conference 2012">
+<div id="skyline" data-role="page" data-title="<%="#{@title} | Evisions Conference 2012"%>">
 <%= yield %>
 </div><!-- /page -->
 </body>

@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   protected
     # this method should be placed in ApplicationController
     def restrict_to_development
-      head(:bad_request) unless RAILS_ENV == "development"
+      #head(:bad_request) unless RAILS_ENV == "development"
     end
 end

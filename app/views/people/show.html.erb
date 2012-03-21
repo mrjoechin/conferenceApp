@@ -1,11 +1,9 @@
-<div data-role="page" data-title="Speaker Details | Evisions Conference 2012">
-
   <div data-role="header" data-theme="d">
         <h1>Session Details</h1>
         <a href="<%= people_path %>" data-icon="back" data-direction="reverse" class="ui-btn-left">Back</a>
   </div><!-- /header -->
 
-	<div data-role="content" data-theme="b" id="skyline">
+	<div data-role="content" >
 
     <h2><%= "#{@person.first_name} #{@person.last_name}" %></h2>
     <p><%= @person.bio %></p>

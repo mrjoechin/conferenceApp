@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
+    @title = "Speakers"
     @people = Person.order("first_name")
 
     respond_to do |format|
@@ -14,6 +15,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    @title = "Speaker Details"
     @person = Person.find(params[:id])
     @sessions = Session.where("speaker_id = ?", @person.id).order("slot_id")
 

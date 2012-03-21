@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   # GET /sessions
   # GET /sessions.json
   def index
+    @title = "Sessions"
     @slots = Slot.all
     
     @sessions = Array.new
@@ -19,6 +20,7 @@ class SessionsController < ApplicationController
   # GET /sessions/1
   # GET /sessions/1.json
   def show
+    @title = "Session Details"
     @session = Session.find(params[:id])
 
     respond_to do |format|

@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :location_id %><br />
-    <%= collection_select(:session, :location_id, Location.all, :id, :name, options ={:prompt => "Select a Location"}, :class =>"location")%>
+    <%= collection_select(:session, :location_id, Location.order('name'), :id, :name, options ={:prompt => "Select a Location"}, :class =>"location")%>
   </div>
   <div class="field">
     <%= f.label :slot_id %><br />
@@ -29,15 +29,15 @@
   </div>
   <div class="field">
     <%= f.label :speaker_id %><br />
-    <%= collection_select(:session, :speaker_id, Person.all, :id, :selectOptions, options ={:prompt => "Select a Speaker"}, :class =>"people")%>
+    <%= collection_select(:session, :speaker_id, Person.order('first_name'), :id, :selectOptions, options ={:prompt => "Select a Speaker"}, :class =>"people")%>
   </div>
   <div class="field">
     <%= f.label :helper_id %><br />
-    <%= collection_select(:session, :helper_id, Person.all, :id, :selectOptions, options ={:prompt => "Select a Helper"}, :class =>"people")%>
+    <%= collection_select(:session, :helper_id, Person.order('last_name'), :id, :selectOptions, options ={:prompt => "Select a Helper"}, :class =>"people")%>
   </div>
   <div class="field">
     <%= f.label :institution_id %><br />
-    <%= collection_select(:session, :institution_id, Institution.all, :id, :name, options ={:prompt => "Select a Institution"}, :class =>"institution")%>
+    <%= collection_select(:session, :institution_id, Institution.order('name'), :id, :name, options ={:prompt => "Select a Institution"}, :class =>"institution")%>
   </div>
   <div>
     <p>Audiences</p>

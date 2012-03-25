@@ -10,7 +10,6 @@
         <% @people.each do |person| %>
           <li><a href="<%= person_path(person) %>">
             <h3><%= "#{person.first_name} #{person.last_name}" %></h3>
-            <p><strong>title, company</strong></p>
           </a></li>
           <%= link_to 'Show', person  if Rails.env.development? %>
           <%= link_to 'Edit', edit_person_path(person)  if Rails.env.development? %>
